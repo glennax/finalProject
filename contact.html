@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cuteness Overload</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.0.7/parsley.min.js"></script>
+	<link href="css/parsley.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<header></header>
+		<section>
+			<form id="contact" method="POST" action="http://httpbin.org/post" data-parsley-validate>
+				<ul>
+					<li>
+						<label for="fullname">Name: </label>
+						<input type="text" name="fullname" id="fullname" data-parsley-minlength="2" data-parsley-validation-threshold="10" required/>
+					</li>
+
+					<li>
+						<label for="email">Email: </label>
+						<input type="email" name="email" id="email" data-parsley-trigger="change" required/>
+					</li>
+
+					<li>
+						<label for="gender">Gender: </label>
+						<input type="radio" name="gender" value="male" checked />Male
+						<input type="radio" name="gender" value="female" />Female
+				    </li>
+
+				    <li>
+						<label for="career">Career: </label>
+						<select name="career" id="career" required>
+						<option>Advertising, Marketing and PR</option>
+							<option>Business</option>
+					                <option>Banking and Finance</option>
+					                <option>Creative Art and Design</option>
+					                <option>Eduction</option>
+					                <option>Engineering</option>
+					                <option>Healthcare</option>
+					                <option>Information Technology</option>
+					                <option>Law</option>
+					                <option>Journalism and Media</option>
+					                <option>Social Work</option>
+					                <option>Others</option>
+					    </select>
+				    </li>
+
+				    <li>
+				        <label for="message">Message: </label>
+				        <textarea name="message" id="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-validation-threshold="10" required /></textarea>
+
+				        <input type="submit" value="submit" id="submit"/>
+			    	</li>
+		    	</ul>
+	    	</form>
+	    	<div id="response"></div>
+		</section>
+		<footer></footer>
+	</div>
+	<script src="js/main.js"></script>
+	<script type="text/javascript">
+	  $('#contact').parsley();
+	</script>
+	<script src="js/header.js"></script>
+</body>
+</html>
