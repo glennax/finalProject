@@ -13,11 +13,19 @@ header {
 	height: 10em;
 	color:rgb(25, 110, 61);	
 }
-
+section{
+	margin-top: 0;
+	padding-top: 0;
+	margin-bottom: 5%;
+}
 .flex-container{
 	display: flex;
 	-webkit-flex-flow; row wrap;
 	justify-content: space-around;
+}
+#retrieve, #save{
+	cursor: pointer;
+
 }
 
 nav{

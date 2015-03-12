@@ -17,3 +17,19 @@ $.ajax({
 	}).done(function(ip){
 		$('footer').text("Your IP address is: " + ip.origin);
 	})
+
+//save info in local storage and retrieve  
+$("#save").click(function(){
+	localStorage.setItem('firstName', $('#firstName').val());
+	localStorage.setItem('lastName', $('#lastName').val());
+	localStorage.setItem('courseTitle', $('#courseTitle').val());
+	console.log("saved");
+});
+
+$("#retrieve").click(function(){
+	var currentFirstName = localStorage.getItem('firstName');
+	var currentLastName = localStorage.getItem('lastName');
+	var courseTitle = localStorage.getItem('courseTitle');
+    $("#result").append("Your name is " + currentFirstName + " " + currentLastName + ", " 
+    +	"and your course title is " +courseTitle );
+})
