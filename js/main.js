@@ -33,3 +33,24 @@ $("#retrieve").click(function(){
     $("#result").append("Your name is " + currentFirstName + " " + currentLastName + ", " 
     +	"and your course title is " +courseTitle );
 })
+
+//flickr api
+var searchURL = 'http://api.flickr.com/services/feeds/photos_public.gne?tags=nature&format=json&jsoncallback=?';
+
+getResults();
+
+function getResults() {
+
+	$.ajax({
+		url: searchURL,
+		dataType: 'jsonp',
+
+	}).done(function(response){
+		//console.log(response);
+		$.each(response.items, function(i,photo){
+    		console.log(photo.media.m);
+    		src = photo.media.m;
+    		$("<img/>").attr("src", src).appendTo("#flickr");
+			});
+	});
+}
